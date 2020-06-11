@@ -17,7 +17,6 @@ int fibonnaciUsingAdjacent(int n) {
 
 int fibonacciUsingTransform(int n) {
     std::vector<int> vec(n, 1);
-    int sum = 0;
     std::transform(vec.begin(), vec.end() - 2, vec.begin() + 1, vec.begin() + 2, std::plus<>());  // [&sum](int& el) { sum += sum; return el=sum; });
     return vec[n - 1];
 }
