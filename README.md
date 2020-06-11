@@ -55,7 +55,8 @@ Napisz program, który Narysuje choinkę. Funkcja powinna przyjmować jedną zmi
 int, która określa wysokość choinki. 
 Input: 7
 Output
-```      *      
+```
+      *      
      ***  
     *****
    *******
