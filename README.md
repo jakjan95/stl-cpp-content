@@ -55,13 +55,14 @@ Napisz program, który Narysuje choinkę. Funkcja powinna przyjmować jedną zmi
 int, która określa wysokość choinki. 
 Input: 7
 Output
-      *      
+```      *      
      ***  
     *****
    *******
   *********
  ***********
-*************
+************* 
+```
 (max 4 punkty):
 - 2 punkty -> rozwiązanie działa 
 - 3 punkty -> nie użyliśmy pętli 
