@@ -17,6 +17,7 @@ void removeDupWord(std::string& str) {
     results.erase(std::unique(results.begin(), results.end()), results.end());
     results.insert(results.end(), results2.begin(), results2.end());
     str = std::accumulate(results.begin(), results.end(), std::string(), [](std::string lhs, const std::string& rhs) { return lhs.empty() ? rhs : lhs + ' ' + rhs; });
+    str.erase(std::remove_if(str.end() - 2, str.end() - 1, [](auto x) { return std::isspace(x); })), str.end();
 }
 
 int main() {
