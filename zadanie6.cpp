@@ -23,10 +23,13 @@ bool condition(const std::string& w) {
 void wordRemover(std::string& word) {
     std::istringstream iss(word);
     std::vector<std::string> words((std::istream_iterator<std::string>(iss)), std::istream_iterator<std::string>());
+    //deleting dots in dirty way:
+    words[words.size()-1].erase(words[words.size()-1].end()-1);
+    words.erase(std::remove_if(words.begin(), words.end(), condition),words.end());
 
-    words.erase(std::remove_if(words.begin(), words.end(), condition));
     word = std::accumulate(words.begin(), words.end(), std::string(),
                            [](std::string lhs, const std::string& rhs) { return lhs.empty() ? rhs : lhs + ' ' + rhs; });
+    word += '.';
 }
 
 int main() {
