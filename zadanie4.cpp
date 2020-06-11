@@ -1,3 +1,4 @@
+#include <algorithm>
 #include <iostream>
 #include <numeric>
 #include <vector>
@@ -14,8 +15,16 @@ int fibonnaciUsingAdjacent(int n) {
     return vec[n - 1];
 }
 
+int fibonacciUsingTransform(int n) {
+    std::vector<int> vec(n, 1);
+    int sum = 0;
+    std::transform(vec.begin(), vec.end() - 2, vec.begin() + 1, vec.begin() + 2, std::plus<>());  // [&sum](int& el) { sum += sum; return el=sum; });
+    return vec[n - 1];
+}
+
 int main() {
-    std::cout << fibonacciRecursive(15) << '\n';
-    std::cout << fibonnaciUsingAdjacent(15) << '\n';
+    std::cout << fibonacciRecursive(10) << '\n';
+    std::cout << fibonnaciUsingAdjacent(10) << '\n';
+    std::cout << fibonacciUsingTransform(10) << '\n';
     return 0;
 }
