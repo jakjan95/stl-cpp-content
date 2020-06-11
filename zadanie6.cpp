@@ -24,11 +24,7 @@ void wordRemover(std::string& word) {
     std::istringstream iss(word);
     std::vector<std::string> words((std::istream_iterator<std::string>(iss)), std::istream_iterator<std::string>());
 
-    print(words);
     words.erase(std::remove_if(words.begin(), words.end(), condition));
-
-    print(words);
-
     word = std::accumulate(words.begin(), words.end(), std::string(),
                            [](std::string lhs, const std::string& rhs) { return lhs.empty() ? rhs : lhs + ' ' + rhs; });
 }
